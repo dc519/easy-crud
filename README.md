@@ -1,6 +1,6 @@
-# Welcome to Easy CRUD
+# Easy CRUD
 
-A simple MERN (MongoDB, Express, React, Node.js) web application that allows users to add, edit, view, and delete people.
+Easy CRUD is a simple MERN (MongoDB, Express, React, Node.js) web application that allows users to add, edit, view, and delete people.
  The application was developed using ChatGPT.
 
 ## Features:

@@ -1,3 +1,5 @@
+Welcome to Easy CRUD
+
 This is a simple CRUD application that enables the user to perform basic functions on a first and last name and the ability to view the names on a separate page. The application was developed using ChatGPT.
 
 The application's functionality includes:

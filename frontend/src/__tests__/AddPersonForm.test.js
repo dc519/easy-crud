@@ -41,14 +41,27 @@ describe('AddPersonForm', () => {
   });
 
   it('calls onSubmit handler when form is submitted', () => {
-    const { props } = setup();
+    const { props } = setup({
+      firstName: 'Jane',
+      lastName: 'Doe',
+    });
 
     fireEvent.click(screen.getByRole('button', { name: /add person/i }));
-        expect(props.onSubmit).toHaveBeenCalled();
+    expect(props.onSubmit).toHaveBeenCalled();
   });
 
   it('disables button when editing is in progress', () => {
     setup({ isAnyEditing: true });
     expect(screen.getByRole('button')).toBeDisabled();
+  });
+
+  it('does not call onSubmit when either first or last name is empty', () => {
+    const { props } = setup({
+      firstName: '',
+      lastName: '',
+    });
+
+    fireEvent.click(screen.getByRole('button', { name: /add person/i }));
+    expect(props.onSubmit).not.toHaveBeenCalled();
   });
 });

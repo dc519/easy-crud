@@ -17,7 +17,8 @@ export default function PersonItem({
   return (
     <div className="person-item-details">
       {isEditing ? (
-        <form onSubmit={onEditSubmit} className="edit-form" data-testid="edit-form">          <input
+        <form onSubmit={onEditSubmit} className="edit-form" data-testid="edit-form">          
+          <input
             type="text"
             placeholder="First name"
             value={editFirstName}

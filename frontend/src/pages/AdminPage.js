@@ -2,15 +2,12 @@ import React from 'react';
 import AddPersonForm from '../components/AddPersonForm';
 import PeopleList from '../components/PeopleList';
 import usePeople from '../hooks/usePeople';
+import useForm from '../hooks/useForm';
 import '../admin.css';
 
 export default function AdminPage() {
   const {
     people,
-    firstName,
-    lastName,
-    setFirstName,
-    setLastName,
     addPerson,
     removePerson,
     editingId,
@@ -23,20 +20,20 @@ export default function AdminPage() {
     cancelEdit,
   } = usePeople();
 
+  // Use useForm to manage firstName and lastName in one object
+  const { values, handleChange, reset } = useForm({ firstName: '', lastName: '' });
+
   const handleSubmit = async () => {
-    await addPerson(firstName, lastName);
-    setFirstName('');
-    setLastName('');
+    await addPerson(values.firstName, values.lastName);
+    reset();
   };
 
   return (
     <div className="people-container">
       <h1 className="admin-title">Admin</h1>
       <AddPersonForm
-        firstName={firstName}
-        lastName={lastName}
-        onFirstNameChange={setFirstName}
-        onLastNameChange={setLastName}
+        values={values}
+        handleChange={handleChange}
         onSubmit={handleSubmit}
         isDisabled={editingId !== null}
       />

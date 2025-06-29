@@ -7,33 +7,36 @@ export default function AddPersonForm({
   onFirstNameChange,
   onLastNameChange,
   onSubmit,
-  isAnyEditing,
+  isDisabled,
 }) {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!firstName || !lastName) return;
-    onSubmit(e);
-  };
-
   return (
-    <form onSubmit={handleSubmit} className="add-person-form">
+    <form onSubmit={(e) => {
+      e.preventDefault();
+      onSubmit();
+    }} className="add-person-form">
       <input
         type="text"
         placeholder="First name"
+        className="input-field"
         value={firstName}
         onChange={(e) => onFirstNameChange(e.target.value)}
         required
-        disabled={isAnyEditing}
+        disabled={isDisabled}
       />
       <input
         type="text"
         placeholder="Last name"
+        className="input-field"
         value={lastName}
         onChange={(e) => onLastNameChange(e.target.value)}
         required
-        disabled={isAnyEditing}
+        disabled={isDisabled}
       />
-      <button type="submit" disabled={isAnyEditing}>
+      <button
+        type="submit"
+        className="btn btn-primary"
+        disabled={isDisabled}
+      >
         Add person
       </button>
     </form>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AddPersonForm from '../components/AddPersonForm';
 import PeopleList from '../components/PeopleList';
 import usePeople from '../hooks/usePeople';
@@ -23,8 +23,7 @@ export default function AdminPage() {
     cancelEdit,
   } = usePeople();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     await addPerson(firstName, lastName);
     setFirstName('');
     setLastName('');
@@ -39,7 +38,7 @@ export default function AdminPage() {
         onFirstNameChange={setFirstName}
         onLastNameChange={setLastName}
         onSubmit={handleSubmit}
-        isAnyEditing={editingId !== null}
+        isDisabled={editingId !== null}
       />
       <PeopleList
         people={people}

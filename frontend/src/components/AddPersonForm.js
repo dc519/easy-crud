@@ -9,15 +9,21 @@ export default function AddPersonForm({
   onSubmit,
   isAnyEditing,
 }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!firstName || !lastName) return;
+    onSubmit(e);
+  };
+
   return (
-    <form onSubmit={onSubmit} className="add-person-form">
+    <form onSubmit={handleSubmit} className="add-person-form">
       <input
         type="text"
         placeholder="First name"
         value={firstName}
         onChange={(e) => onFirstNameChange(e.target.value)}
         required
-        disabled={isAnyEditing} // Disable input when a block is being edited
+        disabled={isAnyEditing}
       />
       <input
         type="text"
@@ -25,7 +31,7 @@ export default function AddPersonForm({
         value={lastName}
         onChange={(e) => onLastNameChange(e.target.value)}
         required
-        disabled={isAnyEditing} // Disable input when a block is being edited
+        disabled={isAnyEditing}
       />
       <button type="submit" disabled={isAnyEditing}>
         Add person

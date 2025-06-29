@@ -71,8 +71,8 @@ describe('PersonItem', () => {
 
   it('calls onEditSubmit when Save is clicked', () => {
     const { props } = setup({ isEditing: true });
-    fireEvent.click(screen.getByRole('button', { name: /save/i }));
-    expect(props.onEditSubmit).toHaveBeenCalled();
+    fireEvent.submit(screen.getByTestId('edit-form'));
+      expect(props.onEditSubmit).toHaveBeenCalled();
   });
 
   it('calls onCancelEdit when Cancel is clicked', () => {

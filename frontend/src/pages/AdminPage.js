@@ -1,9 +1,10 @@
+// src/pages/AdminPage.js
 import React from 'react';
 import AddPersonForm from '../components/AddPersonForm';
 import PeopleList from '../components/PeopleList';
 import usePeople from '../hooks/usePeople';
 import useForm from '../hooks/useForm';
-import '../styles/admin.css'; //import '../admin.css';
+import '../styles/admin.css';
 
 export default function AdminPage() {
   const {
@@ -20,12 +21,17 @@ export default function AdminPage() {
     cancelEdit,
   } = usePeople();
 
-  // Use useForm to manage firstName and lastName in one object
-  const { values, handleChange, reset } = useForm({ firstName: '', lastName: '' });
+  const { values, handleChange, handleSubmit, reset, errors } = useForm(
+    { firstName: '', lastName: '' },
+    async (formValues) => {
+      await addPerson(formValues.firstName, formValues.lastName);
+      reset();
+    }
+  );
 
-  const handleSubmit = async () => {
-    await addPerson(values.firstName, values.lastName);
-    reset();
+  const validators = {
+    firstName: (val) => (!val ? 'First name is required' : ''),
+    lastName: (val) => (!val ? 'Last name is required' : ''),
   };
 
   return (
@@ -34,7 +40,8 @@ export default function AdminPage() {
       <AddPersonForm
         values={values}
         handleChange={handleChange}
-        onSubmit={handleSubmit}
+        handleSubmit={(e) => handleSubmit(e, validators)}
+        errors={errors}
         isDisabled={editingId !== null}
       />
       <PeopleList

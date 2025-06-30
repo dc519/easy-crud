@@ -1,0 +1,20 @@
+.people-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 1rem;
+  }
+  
+  .person-container {
+    width: 70%;
+  }
+  
+  .person-and-action-buttons-container {
+    display: flex;
+  }
+  
+  .action-buttons-container {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }

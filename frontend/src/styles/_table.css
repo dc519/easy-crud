@@ -1,0 +1,17 @@
+.people-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.people-table th {
+  background-color: #ccc;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 5px;
+  text-align: left;
+}
+
+.people-table td {
+  border: 1px solid #ccc;
+  padding: 5px;
+}

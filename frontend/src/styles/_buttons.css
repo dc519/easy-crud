@@ -1,0 +1,72 @@
+.add-person-form button,
+.edit-form button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-person-form button:hover,
+.edit-form button:hover {
+  background-color: #0056b3;
+}
+
+.add-person-form button:disabled {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  color: #333;
+  cursor: not-allowed;
+}
+
+.edit-form button.cancel {
+  background-color: #dc3545;
+}
+
+.edit-form button.cancel:hover {
+  background-color: #c82333;
+}
+
+.action-button {
+  background-color: #f9f9f9;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  height: 34px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.action-button:hover {
+  color: white;
+}
+
+.action-button.edit:hover {
+  background-color: #007bff;
+}
+
+.action-button.delete:hover {
+  background-color: #dc3545;
+}
+
+.action-button:disabled,
+.action-button:disabled:hover {
+  background-color: inherit;
+  color: inherit;
+  cursor: not-allowed;
+  transition: none;
+}
+
+.action-buttons-confirmation-container {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.action-buttons-confirmation-container button {
+  height: 34px;
+}

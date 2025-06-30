@@ -3,7 +3,7 @@ import AddPersonForm from '../components/AddPersonForm';
 import PeopleList from '../components/PeopleList';
 import usePeople from '../hooks/usePeople';
 import useForm from '../hooks/useForm';
-import '../admin.css';
+import '../styles/admin.css'; //import '../admin.css';
 
 export default function AdminPage() {
   const {
